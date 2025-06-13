@@ -32,7 +32,7 @@ More Changes from default docker-ps:
 You can install `dops` by running the official installer script. This will automatically detect your operating system and architecture.
 
 ```sh
-curl -sSL https://raw.githubusercontent.com/Mikescher/better-docker-ps/master/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/LivioGama/better-docker-ps/develop/install.sh | bash
 ```
 
 ### ArchLinux
@@ -50,7 +50,7 @@ curl -sSL https://raw.githubusercontent.com/Mikescher/better-docker-ps/master/in
 If you want to build `dops` from source, you need to have Go installed.
 
 ```sh
-git clone https://github.com/Mikescher/better-docker-ps.git
+git clone https://github.com/LivioGama/better-docker-ps.git
 cd better-docker-ps
 make build
 mv _out/dops "$HOME/.local/bin/"
@@ -110,7 +110,7 @@ end
 ## Changing the output format
 
 By default dops tries to be "intelligent" and find the best output format for your terminal width.
-The current output formats (= table columns) are defined in the [options.go](https://github.com/Mikescher/better-docker-ps/blob/master/cli/options.go).
+The current output formats (= table columns) are defined in the [options.go](https://github.com/LivioGama/better-docker-ps/blob/master/cli/options.go).
 The first format that fits in your terminal width is used.
 
 But you can also override it by supplying a `--format` parameter. If you supply more than one `--format` parameter the first one that fits your terminal is used (same logic as with the default ones...)

@@ -51,7 +51,7 @@ info_bold() {
 command -v curl >/dev/null ||
     error 'curl is required to install dops'
 
-REPO="Mikescher/better-docker-ps"
+REPO="LivioGama/better-docker-ps"
 BINARY_NAME=""
 
 # Platform detection
