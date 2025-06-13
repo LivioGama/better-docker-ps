@@ -2,6 +2,9 @@ package cli
 
 import (
 	"git.blackforestbytes.com/BlackForestBytes/goext/termext"
+	"os"
+	"path/filepath"
+	"runtime"
 	"time"
 )
 
@@ -47,7 +50,7 @@ func DefaultCLIOptions() Options {
 		TimeZone:         time.Local,
 		TimeFormatHeader: "Z07:00 MST",
 		TimeFormat:       "2006-01-02 15:04:05",
-		Socket:           "/var/run/docker.sock",
+		Socket:           getDefaultSocket(),
 		Input:            nil,
 		All:              false,
 		WithSize:         false,
@@ -76,4 +79,19 @@ func DefaultCLIOptions() Options {
 		SortDirection:    make([]SortDirection, 0),
 		WatchInterval:    nil,
 	}
+}
+
+func getDefaultSocket() string {
+	if runtime.GOOS == "darwin" {
+		home, err := os.UserHomeDir()
+		if err != nil {
+			return "/var/run/docker.sock"
+		}
+		return filepath.Join(home, ".docker/run/docker.sock")
+	}
+	return "/var/run/docker.sock"
+}
+
+func p(v bool) *bool {
+	return &v
 }
